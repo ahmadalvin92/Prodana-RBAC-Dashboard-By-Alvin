@@ -5,6 +5,7 @@ import Alert from "../components/ui/Alert";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import { useAuth } from "../contexts/AuthContext";
+import { brand } from "../utils/brand";
 
 const LoginPage = () => {
   const { isAuthenticated, isAuthenticating, login } = useAuth();
@@ -36,10 +37,10 @@ const LoginPage = () => {
       <section className="hidden bg-ink px-12 py-10 text-white lg:flex lg:flex-col lg:justify-between">
         <div>
           <div className="inline-flex rounded-md bg-white px-4 py-3">
-            <img src="/brand/prodana-crowdfunding.png" alt="Prodana Crowdfunding" className="h-12 w-auto object-contain" />
+            <img src={brand.assets.prodana} alt={brand.companyName} className="h-12 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-md text-sm leading-6 text-slate-300">
-            Licensed SME funding platform powered by Protemus, with access operations managed through a secure internal workspace.
+            {brand.tagline} Access operations are managed through a secure internal workspace.
           </p>
         </div>
         <div className="max-w-xl">
@@ -51,20 +52,20 @@ const LoginPage = () => {
         </div>
         <div className="grid grid-cols-3 gap-3">
           <div className="flex h-14 items-center justify-center rounded-md bg-white px-3">
-            <img src="/brand/protemus-capital.png" alt="Protemus Capital" className="max-h-10 w-auto object-contain" />
+            <img src={brand.assets.protemus} alt="Protemus Capital" className="max-h-10 w-auto object-contain" />
           </div>
           <div className="flex h-14 items-center justify-center rounded-md bg-white px-3">
-            <img src="/brand/geneva-capital-group.png" alt="Geneva Capital Group" className="max-h-10 w-auto object-contain" />
+            <img src={brand.assets.geneva} alt="Geneva Capital Group" className="max-h-10 w-auto object-contain" />
           </div>
           <div className="flex h-14 items-center justify-center rounded-md bg-white px-3">
-            <img src="/brand/ggi.png" alt="GGI" className="max-h-10 w-auto object-contain" />
+            <img src={brand.assets.ggi} alt="GGI" className="max-h-10 w-auto object-contain" />
           </div>
         </div>
       </section>
       <section className="flex items-center justify-center px-4 py-10">
         <div className="w-full max-w-md rounded-md border border-slate-200 bg-white p-7 shadow-soft">
           <div className="mb-7 flex justify-center lg:hidden">
-            <img src="/brand/prodana-crowdfunding.png" alt="Prodana Crowdfunding" className="h-14 w-auto object-contain" />
+            <img src={brand.assets.prodana} alt={brand.companyName} className="h-14 w-auto object-contain" />
           </div>
           <div className="mb-8">
             <p className="flex items-center gap-2 text-sm font-medium text-brand">

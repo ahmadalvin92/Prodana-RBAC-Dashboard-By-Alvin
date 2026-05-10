@@ -6,6 +6,7 @@ import DataQueryAssistant from "../components/ui/DataQueryAssistant";
 import LoadingState from "../components/ui/LoadingState";
 import Table from "../components/ui/Table";
 import { dashboardService } from "../services/dashboardService";
+import { brand } from "../utils/brand";
 import { formatCurrency, formatDate } from "../utils/formatters";
 
 const StatCard = ({ label, value, icon: Icon, tone }) => (
@@ -30,18 +31,18 @@ const CompanyProfile = () => (
         <h2 className="mt-2 text-xl font-bold text-ink">Crowdfunding administration for SME funding workflows.</h2>
         <p className="mt-2 text-sm leading-6 text-muted">
           This workspace supports internal teams in maintaining user access, product records, and operational summaries for
-          Prodana Crowdfunding, a licensed SME funding platform powered by Protemus.
+          {brand.companyName}, a licensed SME funding platform powered by Protemus.
         </p>
       </div>
       <div className="grid min-w-0 grid-cols-3 gap-3 sm:min-w-[360px]">
         <div className="flex h-16 items-center justify-center rounded-md border border-slate-200 bg-slate-50 px-3">
-          <img src="/brand/protemus-capital.png" alt="Protemus Capital" className="max-h-11 w-auto object-contain" />
+          <img src={brand.assets.protemus} alt="Protemus Capital" className="max-h-11 w-auto object-contain" />
         </div>
         <div className="flex h-16 items-center justify-center rounded-md border border-slate-200 bg-slate-50 px-3">
-          <img src="/brand/geneva-capital-group.png" alt="Geneva Capital Group" className="max-h-11 w-auto object-contain" />
+          <img src={brand.assets.geneva} alt="Geneva Capital Group" className="max-h-11 w-auto object-contain" />
         </div>
         <div className="flex h-16 items-center justify-center rounded-md border border-slate-200 bg-slate-50 px-3">
-          <img src="/brand/ggi.png" alt="GGI" className="max-h-11 w-auto object-contain" />
+          <img src={brand.assets.ggi} alt="GGI" className="max-h-11 w-auto object-contain" />
         </div>
       </div>
     </div>

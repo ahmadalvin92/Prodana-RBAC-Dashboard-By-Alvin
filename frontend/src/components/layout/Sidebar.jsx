@@ -1,5 +1,6 @@
 import { Boxes, LayoutDashboard, Users } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { brand } from "../../utils/brand";
 import { permissions } from "../../utils/roles";
 
 const getNavigation = (role) => [
@@ -38,7 +39,7 @@ const Sidebar = ({ role, isOpen, onClose }) => {
         }`}
       >
         <div className="flex h-20 items-center border-b border-slate-200 px-6">
-          <img src="/brand/prodana-crowdfunding.png" alt="Prodana Crowdfunding" className="h-12 w-auto object-contain" />
+          <img src={brand.assets.prodana} alt={brand.companyName} className="h-12 w-auto object-contain" />
         </div>
         <nav className="flex-1 space-y-1 px-4 py-5">
           {items.map((item) => {
