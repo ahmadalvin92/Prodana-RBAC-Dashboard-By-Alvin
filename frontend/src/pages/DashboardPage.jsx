@@ -22,6 +22,32 @@ const StatCard = ({ label, value, icon: Icon, tone }) => (
   </div>
 );
 
+const CompanyProfile = () => (
+  <section className="rounded-md border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <div className="max-w-2xl">
+        <p className="text-sm font-semibold text-brand">Prodana Operations</p>
+        <h2 className="mt-2 text-xl font-bold text-ink">Crowdfunding administration for SME funding workflows.</h2>
+        <p className="mt-2 text-sm leading-6 text-muted">
+          This workspace supports internal teams in maintaining user access, product records, and operational summaries for
+          Prodana Crowdfunding, a licensed SME funding platform powered by Protemus.
+        </p>
+      </div>
+      <div className="grid min-w-0 grid-cols-3 gap-3 sm:min-w-[360px]">
+        <div className="flex h-16 items-center justify-center rounded-md border border-slate-200 bg-slate-50 px-3">
+          <img src="/brand/protemus-capital.png" alt="Protemus Capital" className="max-h-11 w-auto object-contain" />
+        </div>
+        <div className="flex h-16 items-center justify-center rounded-md border border-slate-200 bg-slate-50 px-3">
+          <img src="/brand/geneva-capital-group.png" alt="Geneva Capital Group" className="max-h-11 w-auto object-contain" />
+        </div>
+        <div className="flex h-16 items-center justify-center rounded-md border border-slate-200 bg-slate-50 px-3">
+          <img src="/brand/ggi.png" alt="GGI" className="max-h-11 w-auto object-contain" />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const DashboardPage = () => {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,9 +90,10 @@ const DashboardPage = () => {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-ink">Dashboard</h1>
-        <p className="mt-1 text-sm text-muted">Operational summary for users, products, and active records.</p>
+        <p className="mt-1 text-sm text-muted">Daily overview for account access, products, and active records.</p>
       </div>
       <Alert message={error} />
+      <CompanyProfile />
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard label="Total Users" value={stats?.cards.users || 0} icon={Users} tone="bg-blue-50 text-blue-700" />
         <StatCard

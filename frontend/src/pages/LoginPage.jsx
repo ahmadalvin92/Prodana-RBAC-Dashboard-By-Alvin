@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { Building2 } from "lucide-react";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Alert from "../components/ui/Alert";
@@ -34,33 +34,44 @@ const LoginPage = () => {
   return (
     <main className="grid min-h-screen bg-surface lg:grid-cols-[1.05fr_0.95fr]">
       <section className="hidden bg-ink px-12 py-10 text-white lg:flex lg:flex-col lg:justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-brand">
-            <ShieldCheck className="h-6 w-6" />
+        <div>
+          <div className="inline-flex rounded-md bg-white px-4 py-3">
+            <img src="/brand/prodana-crowdfunding.png" alt="Prodana Crowdfunding" className="h-12 w-auto object-contain" />
           </div>
-          <div>
-            <p className="font-semibold">Prodana RBAC</p>
-            <p className="text-sm text-slate-300">Enterprise Administration</p>
-          </div>
-        </div>
-        <div className="max-w-xl">
-          <p className="text-sm font-medium uppercase tracking-normal text-blue-200">Secure Operations</p>
-          <h1 className="mt-4 text-4xl font-bold leading-tight">Role-aware control for users and products.</h1>
-          <p className="mt-5 text-base leading-7 text-slate-300">
-            A production-style dashboard with JWT authentication, protected routes, and role-based permissions.
+          <p className="mt-4 max-w-md text-sm leading-6 text-slate-300">
+            Licensed SME funding platform powered by Protemus, with access operations managed through a secure internal workspace.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-3 text-sm text-slate-300">
-          <span className="rounded-md bg-white/10 px-3 py-2">Admin</span>
-          <span className="rounded-md bg-white/10 px-3 py-2">Editor</span>
-          <span className="rounded-md bg-white/10 px-3 py-2">Viewer</span>
+        <div className="max-w-xl">
+          <p className="text-sm font-medium uppercase tracking-normal text-blue-200">Operations Console</p>
+          <h1 className="mt-4 text-4xl font-bold leading-tight">User access and product data in one controlled workspace.</h1>
+          <p className="mt-5 text-base leading-7 text-slate-300">
+            Built for daily administration: account records, role assignments, product availability, and quick operational insights.
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-3">
+          <div className="flex h-14 items-center justify-center rounded-md bg-white px-3">
+            <img src="/brand/protemus-capital.png" alt="Protemus Capital" className="max-h-10 w-auto object-contain" />
+          </div>
+          <div className="flex h-14 items-center justify-center rounded-md bg-white px-3">
+            <img src="/brand/geneva-capital-group.png" alt="Geneva Capital Group" className="max-h-10 w-auto object-contain" />
+          </div>
+          <div className="flex h-14 items-center justify-center rounded-md bg-white px-3">
+            <img src="/brand/ggi.png" alt="GGI" className="max-h-10 w-auto object-contain" />
+          </div>
         </div>
       </section>
       <section className="flex items-center justify-center px-4 py-10">
         <div className="w-full max-w-md rounded-md border border-slate-200 bg-white p-7 shadow-soft">
+          <div className="mb-7 flex justify-center lg:hidden">
+            <img src="/brand/prodana-crowdfunding.png" alt="Prodana Crowdfunding" className="h-14 w-auto object-contain" />
+          </div>
           <div className="mb-8">
-            <p className="text-sm font-medium text-brand">Welcome back</p>
-            <h2 className="mt-2 text-2xl font-bold text-ink">Sign in to dashboard</h2>
+            <p className="flex items-center gap-2 text-sm font-medium text-brand">
+              <Building2 className="h-4 w-4" />
+              Internal dashboard
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-ink">Sign in to Prodana</h2>
           </div>
           <form className="space-y-5" onSubmit={handleSubmit}>
             <Alert message={error} />

@@ -1,4 +1,4 @@
-import { Bot, Send } from "lucide-react";
+import { Search, Send } from "lucide-react";
 import { useState } from "react";
 import { aiService } from "../../services/aiService";
 import Alert from "./Alert";
@@ -38,11 +38,11 @@ const DataQueryAssistant = () => {
     <section className="rounded-md border border-slate-200 bg-white p-5 shadow-sm">
       <div className="flex items-start gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-brand">
-          <Bot className="h-5 w-5" />
+          <Search className="h-5 w-5" />
         </div>
         <div>
-          <h2 className="text-base font-semibold text-ink">AI Data Query</h2>
-          <p className="mt-1 text-sm text-muted">Ask operational questions using the current database context.</p>
+          <h2 className="text-base font-semibold text-ink">Data Insights</h2>
+          <p className="mt-1 text-sm text-muted">Ask quick operational questions using the current dashboard data.</p>
         </div>
       </div>
 

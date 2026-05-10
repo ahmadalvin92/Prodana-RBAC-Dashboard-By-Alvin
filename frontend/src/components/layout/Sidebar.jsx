@@ -1,4 +1,4 @@
-import { Boxes, LayoutDashboard, ShieldCheck, Users } from "lucide-react";
+import { Boxes, LayoutDashboard, Users } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { permissions } from "../../utils/roles";
 
@@ -37,14 +37,8 @@ const Sidebar = ({ role, isOpen, onClose }) => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex h-16 items-center gap-3 border-b border-slate-200 px-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-md bg-brand text-white">
-            <ShieldCheck className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-bold text-ink">Prodana RBAC</p>
-            <p className="text-xs text-muted">Administration</p>
-          </div>
+        <div className="flex h-20 items-center border-b border-slate-200 px-6">
+          <img src="/brand/prodana-crowdfunding.png" alt="Prodana Crowdfunding" className="h-12 w-auto object-contain" />
         </div>
         <nav className="flex-1 space-y-1 px-4 py-5">
           {items.map((item) => {
@@ -70,6 +64,7 @@ const Sidebar = ({ role, isOpen, onClose }) => {
         <div className="border-t border-slate-200 px-6 py-4">
           <p className="text-xs font-medium uppercase tracking-normal text-muted">Current Role</p>
           <p className="mt-1 text-sm font-semibold text-ink">{role}</p>
+          <p className="mt-3 text-xs leading-5 text-muted">Powered by Protemus Capital</p>
         </div>
       </aside>
     </>
