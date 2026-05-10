@@ -70,9 +70,9 @@ const LoginPage = () => {
           <div className="mb-8">
             <p className="flex items-center gap-2 text-sm font-medium text-brand">
               <Building2 className="h-4 w-4" />
-              Internal dashboard
+              Operations access
             </p>
-            <h2 className="mt-2 text-2xl font-bold text-ink">Sign in to Prodana</h2>
+            <h2 className="mt-2 text-2xl font-bold text-ink">Sign in to workspace</h2>
           </div>
           <form className="space-y-5" onSubmit={handleSubmit}>
             <Alert message={error} />
