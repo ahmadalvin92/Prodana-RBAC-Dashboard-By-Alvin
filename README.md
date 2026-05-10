@@ -36,6 +36,16 @@ Full-stack RBAC dashboard application built for a junior full-stack developer te
 - Prisma schema, migration, and seed data
 - Automated backend unit tests with Node.js test runner
 
+## Assessment Checklist
+
+- Backend API and Frontend SPA are separated in a monorepo.
+- Authentication uses JWT and bcrypt password hashing.
+- Authorization is enforced on backend routes with role middleware.
+- Frontend navigation and action buttons are adjusted by user role.
+- Database schema includes roles, users, and products with relationships.
+- README includes installation steps, API endpoints, and test credentials.
+- Bonus items include backend unit tests and a dashboard data query feature.
+
 ## Role Matrix
 
 | Role | Dashboard | Users | Products |
