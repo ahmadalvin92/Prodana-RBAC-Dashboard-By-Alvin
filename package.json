@@ -1,0 +1,16 @@
+{
+  "name": "prodana-rbac-dashboard",
+  "version": "1.0.0",
+  "description": "Full-stack RBAC dashboard assessment project.",
+  "main": "index.js",
+  "scripts": {
+    "backend:dev": "npm run dev --prefix backend",
+    "frontend:dev": "npm run dev --prefix frontend",
+    "backend:migrate": "npm run prisma:migrate --prefix backend",
+    "backend:seed": "npm run db:seed --prefix backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
