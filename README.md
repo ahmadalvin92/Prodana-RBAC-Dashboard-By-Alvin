@@ -83,7 +83,7 @@ Update `DATABASE_URL` with your MySQL credentials.
 
 ```env
 DATABASE_URL="mysql://root:password@localhost:3306/rbac_dashboard"
-PORT=5000
+PORT=5001
 NODE_ENV=development
 JWT_SECRET="replace-with-a-strong-secret-key"
 JWT_EXPIRES_IN="1d"
@@ -98,7 +98,7 @@ cp .env.example .env
 ```
 
 ```env
-VITE_API_BASE_URL="http://localhost:5000/api"
+VITE_API_BASE_URL="http://localhost:5001/api"
 ```
 
 ### 3. Install Dependencies
@@ -152,7 +152,7 @@ http://localhost:5173
 Backend health check:
 
 ```text
-http://localhost:5000/health
+http://localhost:5001/health
 ```
 
 ## Demo Accounts
