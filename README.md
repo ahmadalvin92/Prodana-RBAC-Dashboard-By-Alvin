@@ -2,6 +2,26 @@
 
 Full-stack RBAC dashboard application built for a junior full-stack developer technical assessment. The project uses a monorepo layout with a Node.js/Express/MySQL backend and a React/Vite/Tailwind CSS frontend.
 
+## Project summary
+
+Dashboard administrasi ini menunjukkan implementasi autentikasi dan kontrol akses berbasis peran secara menyeluruh. Setiap peran memperoleh navigasi dan tindakan yang relevan, sementara API juga memverifikasi hak akses sehingga pembatasan tidak hanya berada di antarmuka.
+
+| Layer | Implementation |
+| --- | --- |
+| Backend language | JavaScript / Node.js |
+| Backend framework | Express.js + Prisma ORM |
+| Frontend | React + Vite + Tailwind CSS |
+| Database | MySQL |
+| Authentication | JWT + bcryptjs |
+| Authorization | Admin, Editor, dan Viewer RBAC |
+
+## User flow
+
+1. Pengguna login dan menerima token JWT.
+2. Aplikasi menampilkan sidebar serta aksi sesuai role pengguna.
+3. Endpoint backend memvalidasi token dan role sebelum data dibaca atau diubah.
+4. Admin mengelola user serta produk; Editor mengelola user; Viewer hanya dapat melihat dashboard dan data yang diizinkan.
+
 ## Tech Stack
 
 ### Backend
