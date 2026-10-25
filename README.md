@@ -1,251 +1,200 @@
-# Prodana RBAC Dashboard
+# 🛡️ Prodana RBAC Dashboard
+### Enterprise Role-Based Access Control System • React • Vite • Node.js • Express • MySQL • Prisma • Tailwind CSS
 
-Full-stack RBAC dashboard application built for a junior full-stack developer technical assessment. The project uses a monorepo layout with a Node.js/Express/MySQL backend and a React/Vite/Tailwind CSS frontend.
+Dashboard operasional berbasis peran (*Role-Based Access Control / RBAC*) yang dikembangkan untuk manajemen akses pengguna, keamanan data, dan pemeliharaan katalog produk UKM berlisensi pada platform **Prodana Crowdfunding** (didukung oleh *Protemus Capital*).
 
-## Project summary
+Aplikasi mengimplementasikan pemisahan hak akses granular (*Admin, Editor, Viewer*) di sisi antarmuka pengguna (*Frontend Guards*) maupun validasi ketat di sisi API endpoint (*Backend Middlewares*).
 
-Dashboard administrasi ini menunjukkan implementasi autentikasi dan kontrol akses berbasis peran secara menyeluruh. Setiap peran memperoleh navigasi dan tindakan yang relevan, sementara API juga memverifikasi hak akses sehingga pembatasan tidak hanya berada di antarmuka.
+---
 
-| Layer | Implementation |
-| --- | --- |
-| Backend language | JavaScript / Node.js |
-| Backend framework | Express.js + Prisma ORM |
-| Frontend | React + Vite + Tailwind CSS |
-| Database | MySQL |
-| Authentication | JWT + bcryptjs |
-| Authorization | Admin, Editor, dan Viewer RBAC |
+## 📸 Preview & Screenshots
 
-## User flow
+### 📊 Operations Dashboard
+<p align="center">
+  <img src="screenshots/dashboard-page.png" alt="Prodana Operations Dashboard" width="95%" />
+</p>
 
-1. Pengguna login dan menerima token JWT.
-2. Aplikasi menampilkan sidebar serta aksi sesuai role pengguna.
-3. Endpoint backend memvalidasi token dan role sebelum data dibaca atau diubah.
-4. Admin mengelola user serta produk; Editor mengelola user; Viewer hanya dapat melihat dashboard dan data yang diizinkan.
+---
 
-## Tech Stack
+### 🔐 Authentication & Workspace Login
+<p align="center">
+  <img src="screenshots/login-page.png" alt="Sign in to Workspace" width="95%" />
+</p>
 
-### Backend
+---
 
-- Node.js
-- Express.js
-- Prisma ORM
-- MySQL
-- JWT Authentication
-- bcryptjs
+### 👥 User Access & Identity Management
+<p align="center">
+  <img src="screenshots/users-page.png" alt="User Management Panel" width="95%" />
+</p>
 
-### Frontend
+---
 
-- React.js with Vite
-- React Router DOM
-- Axios
-- Tailwind CSS
-- lucide-react
+### 📦 SME Product & Funding Records
+<p align="center">
+  <img src="screenshots/products-page.png" alt="Product Management Panel" width="95%" />
+</p>
 
-## Features
+---
 
-- JWT authentication with protected backend and frontend routes
-- Role-based access control for Admin, Editor, and Viewer
-- Dynamic sidebar navigation based on authenticated role
-- AI-style database query assistant on the Dashboard
-- Dashboard statistics and recent activity tables
-- User management with role-aware create, update, delete, and read-only behavior
-- Product management restricted to Admin users
-- Reusable Button, Table, Modal, Input, Badge, Alert, EmptyState, and LoadingState components
-- Consistent API response format
-- Environment-based configuration
-- Prisma schema, migration, and seed data
-- Automated backend unit tests with Node.js test runner
+## 🔐 Matriks Hak Akses (Role-Based Permissions)
 
-## Assessment Checklist
+Sistem membagi pengguna ke dalam 3 peran terdefinisi:
 
-- Backend API and Frontend SPA are separated in a monorepo.
-- Authentication uses JWT and bcrypt password hashing.
-- Authorization is enforced on backend routes with role middleware.
-- Frontend navigation and action buttons are adjusted by user role.
-- Database schema includes roles, users, and products with relationships.
-- README includes installation steps, API endpoints, and test credentials.
-- Bonus items include backend unit tests and a dashboard data query feature.
+| Fitur / Tindakan | Administrator | Editor | Viewer |
+| :--- | :---: | :---: | :---: |
+| **Akses Dashboard Ringkasan** | ✅ Full | ✅ Full | ✅ Full |
+| **Lihat Daftar Pengguna (Users)** | ✅ Full | ✅ Full | ✅ Full |
+| **Tambah / Edit / Hapus Pengguna** | ✅ Full | ✅ Full | ❌ Akses Ditolak |
+| **Lihat Katalog Produk UKM (Products)** | ✅ Full | ❌ Tidak Muncul | ❌ Tidak Muncul |
+| **Kelola Produk (Tambah/Edit/Hapus)** | ✅ Full | ❌ Tidak Muncul | ❌ Tidak Muncul |
+| **Asisten Query & Data Insights** | ✅ Full | ✅ Full | ✅ Full |
 
-## Role Matrix
+---
 
-| Role | Dashboard | Users | Products |
-| --- | --- | --- | --- |
-| Admin | Full access | CRUD | CRUD |
-| Editor | Full access | CRUD | No access |
-| Viewer | Full access | Read-only | No access |
+## ✨ Fitur Utama
 
-## Project Structure
+- **🛡️ End-to-End RBAC Protection**: Rute antarmuka diproteksi oleh `ProtectedRoute`, sementara API diproteksi oleh middleware verifikasi token JWT dan validator izin peran.
+- **📈 Realtime Overview Cards**: Metrik ringkasan jumlah pengguna aktif/non-aktif dan produk aktif/non-aktif.
+- **💬 Natural Data Query Assistant**: Fitur tanya jawab cepat terkait data operasional dashboard terkini.
+- **🔍 Filter & Pencarian Cepat**: Pencarian dinamis untuk data pengguna dan produk berdasarkan nama, email, SKU, maupun role.
+- **🗃️ Monorepo Architecture**: Struktur modular terorganisir dengan pemisahan jelas antara `backend/` (Node.js/Express/Prisma) dan `frontend/` (React/Vite/Tailwind).
+
+---
+
+## 🛠️ Tech Stack & Bahasa Pemrograman
+
+| Layer | Teknologi | Peran & Deskripsi |
+| :--- | :--- | :--- |
+| **Bahasa Pemrograman** | `JavaScript (ES6+)`, `Node.js` | Digunakan secara konsisten untuk backend dan frontend |
+| **Frontend Framework** | `React 18`, `Vite` | SPA dengan rendering cepat, modul HMR, dan routing React Router v6 |
+| **Styling & UI** | `Tailwind CSS`, `Lucide Icons` | Tampilan korporat modern berbasis token warna Slate, Ink, dan Brand |
+| **Backend Framework** | `Express.js 5` | RESTful API server dengan modular routing dan middleware arsitektur |
+| **Database & ORM** | `MySQL / MariaDB`, `Prisma ORM` | Skema database relasional type-safe dengan migrasi & seeder otomatis |
+| **Keamanan & Autentikasi**| `JSON Web Token (JWT)`, `bcryptjs` | Token bearer stateless dan hashing kata sandi aman |
+| **Koneksi HTTP** | `Axios` | Client HTTP terkonfigurasi dengan request/response interceptors |
+
+---
+
+## 📁 Struktur Monorepo
 
 ```text
-prodana-rbac-dashboard/
+alvin-rbac-dashboard/
 ├── backend/
 │   ├── prisma/
-│   │   ├── migrations/
-│   │   ├── seeders/
-│   │   └── schema.prisma
-│   └── src/
-│       ├── config/
-│       ├── controllers/
-│       ├── middlewares/
-│       ├── routes/
-│       ├── services/
-│       └── utils/
-└── frontend/
-    └── src/
-        ├── components/
-        ├── contexts/
-        ├── pages/
-        ├── routes/
-        ├── services/
-        └── utils/
+│   │   ├── schema.prisma           # Definisi model database Prisma (User, Role, Product)
+│   │   ├── migrations/             # Riwayat migrasi DDL database
+│   │   └── seeders/main.seed.js    # Data awal (seeder) role, akun demo, & produk
+│   ├── src/
+│   │   ├── config/                 # Konfigurasi database Prisma client
+│   │   ├── controllers/            # Request handler (auth, dashboard, users, products)
+│   │   ├── middlewares/            # Auth guard (verifyToken) & role checker (requireRole)
+│   │   ├── routes/                 # Express API routes
+│   │   ├── services/               # Lapisan logika bisnis
+│   │   └── server.js               # Entry point Express server
+│   ├── .env.example
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/             # Layout (Sidebar, Navbar) & Komponen UI (Table, Modal, Button)
+│   │   ├── contexts/AuthContext    # State autentikasi global & token storage
+│   │   ├── pages/                  # Halaman Login, Dashboard, Users, Products
+│   │   ├── routes/ProtectedRoute   # Route guards berdasarkan role pengguna
+│   │   ├── services/               # API client service layer (Axios)
+│   │   └── utils/roles.js          # Definisi konstanta role & helper perizinan
+│   ├── .env.example
+│   ├── tailwind.config.js
+│   └── package.json
+├── screenshots/                    # Dokumentasi screenshot aplikasi
+├── package.json                    # Root script orchestration
+└── README.md
 ```
 
-## Getting Started
+---
 
-### 1. Configure Backend Environment
+## ⚙️ Prasyarat Sistem
 
+- **Node.js**: Versi `18.x` atau lebih baru (direkomendasikan `20.x` LTS)
+- **npm**: Versi `9.x` atau lebih baru
+- **MySQL / MariaDB**: Server database lokal aktif (misalnya melalui XAMPP, Homebrew MySQL, atau Docker)
+
+---
+
+## 🚀 Panduan Instalasi & Menjalankan Lokal
+
+### 1. Clone Repositori
 ```bash
-cd backend
-cp .env.example .env
+git clone https://github.com/ahmadalvin92/Prodana-RBAC-Dashboard-By-Alvin.git
+cd Prodana-RBAC-Dashboard-By-Alvin
 ```
 
-Update `DATABASE_URL` with your MySQL credentials.
+### 2. Setup Backend & Database
+1. Masuk ke direktori backend:
+   ```bash
+   cd backend
+   npm install
+   ```
+2. Buat file `.env` dari template:
+   ```bash
+   cp .env.example .env
+   ```
+3. Sesuaikan URL database di dalam `.env` (pastikan database MySQL sudah dibuat, contoh `rbac_dashboard`):
+   ```env
+   DATABASE_URL="mysql://root:@localhost:3306/rbac_dashboard"
+   PORT=5001
+   NODE_ENV=development
+   JWT_SECRET="prodana-super-secret-key"
+   JWT_EXPIRES_IN="1d"
+   CORS_ORIGIN="http://localhost:5173"
+   ```
+4. Jalankan migrasi Prisma dan seed data awal:
+   ```bash
+   npx prisma migrate dev --name init
+   node prisma/seeders/main.seed.js
+   ```
+5. Jalankan backend server:
+   ```bash
+   npm run dev
+   ```
+   *Backend akan berjalan di `http://localhost:5001`.*
 
-```env
-DATABASE_URL="mysql://root:password@localhost:3306/rbac_dashboard"
-PORT=5001
-NODE_ENV=development
-JWT_SECRET="replace-with-a-strong-secret-key"
-JWT_EXPIRES_IN="1d"
-CORS_ORIGIN="http://localhost:5173"
-```
+### 3. Setup Frontend
+1. Buka terminal baru dan masuk ke direktori frontend:
+   ```bash
+   cd frontend
+   npm install
+   ```
+2. Buat file `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+   Pastikan berisi:
+   ```env
+   VITE_API_BASE_URL="http://localhost:5001/api"
+   ```
+3. Jalankan server frontend:
+   ```bash
+   npm run dev
+   ```
+   *Buka browser di [http://localhost:5173](http://localhost:5173).*
 
-### 2. Configure Frontend Environment
+---
 
-```bash
-cd frontend
-cp .env.example .env
-```
+## 🔑 Akun Demo Pengujian
 
-```env
-VITE_API_BASE_URL="http://localhost:5001/api"
-```
+Setelah database di-seed, gunakan akun bawaan berikut untuk menguji masing-masing tingkat peran:
 
-### 3. Install Dependencies
+| Peran | Email | Kata Sandi | Hak Akses |
+| :--- | :--- | :--- | :--- |
+| **Administrator** | `admin@prodana.test` | `AdminPass123` | Akses penuh ke semua modul, pengguna, dan produk |
+| **Editor** | `editor@prodana.test` | `EditorPass123` | Dapat mengelola pengguna, tanpa modul produk |
+| **Viewer** | `viewer@prodana.test` | `ViewerPass123` | Akses baca saja (*read-only*) |
 
-```bash
-cd backend
-npm install
+---
 
-cd ../frontend
-npm install
-```
+## 👨‍💻 Author
 
-### 4. Run Database Migration and Seed
-
-Create the MySQL database first:
-
-```sql
-CREATE DATABASE rbac_dashboard;
-```
-
-Then run:
-
-```bash
-cd backend
-npm run prisma:migrate
-npm run db:seed
-```
-
-### 5. Start Development Servers
-
-Backend:
-
-```bash
-cd backend
-npm run dev
-```
-
-Frontend:
-
-```bash
-cd frontend
-npm run dev
-```
-
-Frontend URL:
-
-```text
-http://localhost:5173
-```
-
-Backend health check:
-
-```text
-http://localhost:5001/health
-```
-
-## Demo Accounts
-
-| Role | Email | Password |
-| --- | --- | --- |
-| Admin | admin@prodana.test | AdminPass123 |
-| Editor | editor@prodana.test | EditorPass123 |
-| Viewer | viewer@prodana.test | ViewerPass123 |
-
-## API Overview
-
-All protected endpoints require:
-
-```http
-Authorization: Bearer <token>
-```
-
-### Auth
-
-- `POST /api/auth/login`
-- `GET /api/auth/me`
-
-### Dashboard
-
-- `GET /api/dashboard`
-
-### AI Data Query
-
-- `POST /api/ai/query`
-
-### Users
-
-- `GET /api/users`
-- `GET /api/users/:id`
-- `GET /api/users/roles`
-- `POST /api/users`
-- `PUT /api/users/:id`
-- `DELETE /api/users/:id`
-
-### Products
-
-- `GET /api/products`
-- `GET /api/products/:id`
-- `POST /api/products`
-- `PUT /api/products/:id`
-- `DELETE /api/products/:id`
-
-## Verification Commands
-
-```bash
-cd backend
-npm run prisma:generate
-npm test
-
-cd ../frontend
-npm run build
-```
-
-## Notes
-
-- Backend authorization is enforced through JWT authentication and role middleware.
-- Frontend role checks are used for user experience only; backend authorization remains the security boundary.
-- Passwords are hashed with bcrypt before persistence.
-- API errors use a consistent JSON response shape.
-- The Dashboard query assistant supports assessment-style questions about role counts, recent users, system totals, and low-stock products.
+**Ahmad Alvin Griffin**  
+- GitHub: [@ahmadalvin92](https://github.com/ahmadalvin92)
+- LinkedIn: [Ahmad Alvin](https://www.linkedin.com/in/ahmad-alvin)
+- Lokasi: Jakarta, Indonesia
